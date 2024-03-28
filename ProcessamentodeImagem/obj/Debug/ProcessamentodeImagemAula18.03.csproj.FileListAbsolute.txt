@@ -1,0 +1,11 @@
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\bin\Debug\ProcessamentodeImagemAula18.03.exe.config
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\bin\Debug\ProcessamentodeImagemAula18.03.exe
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\bin\Debug\ProcessamentodeImagemAula18.03.pdb
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18.03.csproj.AssemblyReference.cache
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18.03.csproj.SuggestedBindingRedirects.cache
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18._03.Form1.resources
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18._03.Properties.Resources.resources
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18.03.csproj.GenerateResource.cache
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18.03.csproj.CoreCompileInputs.cache
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18.03.exe
+C:\Users\tatim\source\repos\ProcessamentodeImagemAula18.03\ProcessamentodeImagemAula18.03\obj\Debug\ProcessamentodeImagemAula18.03.pdb
