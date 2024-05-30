@@ -1,0 +1,46 @@
+# Sistema de compilação Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Arquivos de dependências do .NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Build da pasta de saída
+bin/
+obj/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos de backup do Visual Studio
+*.bak
+*.swp
+
+# Configurações de layout e estado de janelas
+*.pidb
+*.csproj.user
+*.rsuser
+
+# Configurações do Rider
+.idea/
+*.sln.iml
+
+# Configurações do Visual Studio Code
+.vscode/
+
+# Configurações do local do usuário
+.env
+
+# Arquivos gerados pela ferramenta de publicação
+.publish/
+
+# Configurações específicas do sistema operacional
+.DS_Store
+Thumbs.db
