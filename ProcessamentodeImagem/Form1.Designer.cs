@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.button1 = new System.Windows.Forms.Button();
             this.btnNegativo = new System.Windows.Forms.Button();
             this.btnBrilho = new System.Windows.Forms.Button();
@@ -45,8 +45,16 @@
             this.pictureBoxOriginal = new System.Windows.Forms.PictureBox();
             this.pictureBoxEditada = new System.Windows.Forms.PictureBox();
             this.groupBoxOpcoes = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.bSobel = new System.Windows.Forms.Button();
+            this.bPrewitt = new System.Windows.Forms.Button();
+            this.bLaplaciano = new System.Windows.Forms.Button();
             this.chartOriginal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gbconvolucao = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.trackBarKernel = new System.Windows.Forms.TrackBar();
             this.desvioPadrao = new System.Windows.Forms.NumericUpDown();
             this.btnSuavConser = new System.Windows.Forms.Button();
             this.numOrdem = new System.Windows.Forms.NumericUpDown();
@@ -69,7 +77,6 @@
             this.buttonRecorte = new System.Windows.Forms.Button();
             this.gbEfeitos = new System.Windows.Forms.GroupBox();
             this.btnEqualizar = new System.Windows.Forms.Button();
-            this.numericUpDownLimiar = new System.Windows.Forms.NumericUpDown();
             this.btnBinario = new System.Windows.Forms.Button();
             this.numericUDcontraste = new System.Windows.Forms.NumericUpDown();
             this.numericUDBrilho = new System.Windows.Forms.NumericUpDown();
@@ -96,15 +103,28 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnCarregar2 = new System.Windows.Forms.Button();
             this.SaveImage = new System.Windows.Forms.Button();
-            this.trackBarKernel = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.bErosao = new System.Windows.Forms.Button();
+            this.bDilatacao = new System.Windows.Forms.Button();
+            this.bAbertura = new System.Windows.Forms.Button();
+            this.bFechamento = new System.Windows.Forms.Button();
+            this.bMultiplicacao = new System.Windows.Forms.Button();
+            this.bDivisao = new System.Windows.Forms.Button();
+            this.numericUpDownLimiar = new System.Windows.Forms.NumericUpDown();
+            this.numUpDDiv = new System.Windows.Forms.NumericUpDown();
+            this.nUDMultiplicacao = new System.Windows.Forms.NumericUpDown();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.pBoxKernelGaussiano = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.bContorno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditada)).BeginInit();
             this.groupBoxOpcoes.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartOriginal)).BeginInit();
             this.gbconvolucao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarKernel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.desvioPadrao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrdem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartEqual)).BeginInit();
@@ -114,7 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numVertRecorte1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHorizRecort1)).BeginInit();
             this.gbEfeitos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLimiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUDcontraste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUDBrilho)).BeginInit();
             this.groupInverter.SuspendLayout();
@@ -122,25 +141,32 @@
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDBlending)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarKernel)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLimiar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDDiv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMultiplicacao)).BeginInit();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxKernelGaussiano)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(314, 22);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.Location = new System.Drawing.Point(435, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 39);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Caregar imagem";
+            this.button1.Text = "Carregar imagem";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnNegativo
             // 
-            this.btnNegativo.Location = new System.Drawing.Point(6, 109);
+            this.btnNegativo.Location = new System.Drawing.Point(18, 112);
             this.btnNegativo.Name = "btnNegativo";
             this.btnNegativo.Size = new System.Drawing.Size(125, 44);
             this.btnNegativo.TabIndex = 1;
@@ -150,7 +176,7 @@
             // 
             // btnBrilho
             // 
-            this.btnBrilho.Location = new System.Drawing.Point(6, 49);
+            this.btnBrilho.Location = new System.Drawing.Point(12, 79);
             this.btnBrilho.Name = "btnBrilho";
             this.btnBrilho.Size = new System.Drawing.Size(125, 44);
             this.btnBrilho.TabIndex = 2;
@@ -160,7 +186,7 @@
             // 
             // btnContraste
             // 
-            this.btnContraste.Location = new System.Drawing.Point(156, 49);
+            this.btnContraste.Location = new System.Drawing.Point(12, 179);
             this.btnContraste.Name = "btnContraste";
             this.btnContraste.Size = new System.Drawing.Size(125, 44);
             this.btnContraste.TabIndex = 3;
@@ -170,24 +196,28 @@
             // 
             // pictureBoxOriginal
             // 
-            this.pictureBoxOriginal.Location = new System.Drawing.Point(30, 95);
+            this.pictureBoxOriginal.Location = new System.Drawing.Point(16, 28);
             this.pictureBoxOriginal.Name = "pictureBoxOriginal";
-            this.pictureBoxOriginal.Size = new System.Drawing.Size(429, 284);
+            this.pictureBoxOriginal.Size = new System.Drawing.Size(574, 340);
             this.pictureBoxOriginal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOriginal.TabIndex = 4;
             this.pictureBoxOriginal.TabStop = false;
             // 
             // pictureBoxEditada
             // 
-            this.pictureBoxEditada.Location = new System.Drawing.Point(20, 28);
+            this.pictureBoxEditada.Location = new System.Drawing.Point(19, 28);
             this.pictureBoxEditada.Name = "pictureBoxEditada";
-            this.pictureBoxEditada.Size = new System.Drawing.Size(429, 284);
+            this.pictureBoxEditada.Size = new System.Drawing.Size(574, 340);
             this.pictureBoxEditada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxEditada.TabIndex = 5;
             this.pictureBoxEditada.TabStop = false;
             // 
             // groupBoxOpcoes
             // 
+            this.groupBoxOpcoes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBoxOpcoes.Controls.Add(this.groupBox6);
+            this.groupBoxOpcoes.Controls.Add(this.groupBox8);
+            this.groupBoxOpcoes.Controls.Add(this.groupBox7);
             this.groupBoxOpcoes.Controls.Add(this.chartOriginal);
             this.groupBoxOpcoes.Controls.Add(this.gbconvolucao);
             this.groupBoxOpcoes.Controls.Add(this.chartEqual);
@@ -195,44 +225,89 @@
             this.groupBoxOpcoes.Controls.Add(this.gbEfeitos);
             this.groupBoxOpcoes.Controls.Add(this.groupInverter);
             this.groupBoxOpcoes.Controls.Add(this.groupBoxImg2);
-            this.groupBoxOpcoes.Location = new System.Drawing.Point(12, 409);
+            this.groupBoxOpcoes.Location = new System.Drawing.Point(-5, 458);
             this.groupBoxOpcoes.Name = "groupBoxOpcoes";
-            this.groupBoxOpcoes.Size = new System.Drawing.Size(1518, 495);
+            this.groupBoxOpcoes.Size = new System.Drawing.Size(1926, 495);
             this.groupBoxOpcoes.TabIndex = 6;
             this.groupBoxOpcoes.TabStop = false;
             this.groupBoxOpcoes.Text = "Opções";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.bPrewitt);
+            this.groupBox6.Controls.Add(this.bLaplaciano);
+            this.groupBox6.Controls.Add(this.bSobel);
+            this.groupBox6.Location = new System.Drawing.Point(1629, 31);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(277, 145);
+            this.groupBox6.TabIndex = 25;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Detecção de Bordas";
+            // 
+            // bSobel
+            // 
+            this.bSobel.Location = new System.Drawing.Point(141, 26);
+            this.bSobel.Name = "bSobel";
+            this.bSobel.Size = new System.Drawing.Size(125, 44);
+            this.bSobel.TabIndex = 19;
+            this.bSobel.Text = "Sobel";
+            this.bSobel.UseVisualStyleBackColor = true;
+            this.bSobel.Click += new System.EventHandler(this.bSobel_Click);
+            // 
+            // bPrewitt
+            // 
+            this.bPrewitt.Location = new System.Drawing.Point(10, 26);
+            this.bPrewitt.Name = "bPrewitt";
+            this.bPrewitt.Size = new System.Drawing.Size(125, 44);
+            this.bPrewitt.TabIndex = 17;
+            this.bPrewitt.Text = "Prewitt";
+            this.bPrewitt.UseVisualStyleBackColor = true;
+            this.bPrewitt.Click += new System.EventHandler(this.bPrewitt_Click);
+            // 
+            // bLaplaciano
+            // 
+            this.bLaplaciano.Location = new System.Drawing.Point(10, 84);
+            this.bLaplaciano.Name = "bLaplaciano";
+            this.bLaplaciano.Size = new System.Drawing.Size(125, 44);
+            this.bLaplaciano.TabIndex = 14;
+            this.bLaplaciano.Text = "Laplaciano";
+            this.bLaplaciano.UseVisualStyleBackColor = true;
+            this.bLaplaciano.Click += new System.EventHandler(this.bLaplaciano_Click);
+            // 
             // chartOriginal
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartOriginal.ChartAreas.Add(chartArea3);
-            this.chartOriginal.Location = new System.Drawing.Point(18, 241);
+            chartArea7.Name = "ChartArea1";
+            this.chartOriginal.ChartAreas.Add(chartArea7);
+            this.chartOriginal.Location = new System.Drawing.Point(182, 215);
             this.chartOriginal.Name = "chartOriginal";
-            series7.ChartArea = "ChartArea1";
-            series7.Color = System.Drawing.Color.Red;
-            series7.Legend = "Legend1";
-            series7.Name = "Red";
-            series8.ChartArea = "ChartArea1";
-            series8.Color = System.Drawing.Color.Lime;
-            series8.Legend = "Legend1";
-            series8.Name = "Green";
-            series9.ChartArea = "ChartArea1";
-            series9.Color = System.Drawing.Color.Blue;
-            series9.Legend = "Legend1";
-            series9.Name = "Blue";
-            this.chartOriginal.Series.Add(series7);
-            this.chartOriginal.Series.Add(series8);
-            this.chartOriginal.Series.Add(series9);
-            this.chartOriginal.Size = new System.Drawing.Size(429, 231);
+            series19.ChartArea = "ChartArea1";
+            series19.Color = System.Drawing.Color.Red;
+            series19.Legend = "Legend1";
+            series19.Name = "Red";
+            series20.ChartArea = "ChartArea1";
+            series20.Color = System.Drawing.Color.Lime;
+            series20.Legend = "Legend1";
+            series20.Name = "Green";
+            series21.ChartArea = "ChartArea1";
+            series21.Color = System.Drawing.Color.Blue;
+            series21.Legend = "Legend1";
+            series21.Name = "Blue";
+            this.chartOriginal.Series.Add(series19);
+            this.chartOriginal.Series.Add(series20);
+            this.chartOriginal.Series.Add(series21);
+            this.chartOriginal.Size = new System.Drawing.Size(365, 257);
             this.chartOriginal.TabIndex = 6;
             this.chartOriginal.Text = "chart1";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "Title1";
-            title3.Text = "Histograma Imagem Original";
-            this.chartOriginal.Titles.Add(title3);
+            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title7.Name = "Title1";
+            title7.Text = "Histograma Imagem Original";
+            this.chartOriginal.Titles.Add(title7);
             // 
             // gbconvolucao
             // 
+            this.gbconvolucao.Controls.Add(this.label9);
+            this.gbconvolucao.Controls.Add(this.pBoxKernelGaussiano);
+            this.gbconvolucao.Controls.Add(this.label8);
             this.gbconvolucao.Controls.Add(this.label7);
             this.gbconvolucao.Controls.Add(this.label6);
             this.gbconvolucao.Controls.Add(this.label5);
@@ -246,18 +321,60 @@
             this.gbconvolucao.Controls.Add(this.btConMed);
             this.gbconvolucao.Controls.Add(this.btConMin);
             this.gbconvolucao.Controls.Add(this.btConMax);
-            this.gbconvolucao.Location = new System.Drawing.Point(1269, 30);
+            this.gbconvolucao.Location = new System.Drawing.Point(1284, 31);
             this.gbconvolucao.Name = "gbconvolucao";
-            this.gbconvolucao.Size = new System.Drawing.Size(228, 442);
+            this.gbconvolucao.Size = new System.Drawing.Size(330, 441);
             this.gbconvolucao.TabIndex = 12;
             this.gbconvolucao.TabStop = false;
             this.gbconvolucao.Text = "Convolução";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(276, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 16);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "7x7";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(154, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 16);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "5x5";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(45, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 16);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "3x3";
+            // 
+            // trackBarKernel
+            // 
+            this.trackBarKernel.LargeChange = 2;
+            this.trackBarKernel.Location = new System.Drawing.Point(37, 70);
+            this.trackBarKernel.Maximum = 7;
+            this.trackBarKernel.Minimum = 3;
+            this.trackBarKernel.Name = "trackBarKernel";
+            this.trackBarKernel.Size = new System.Drawing.Size(266, 56);
+            this.trackBarKernel.SmallChange = 2;
+            this.trackBarKernel.TabIndex = 21;
+            this.trackBarKernel.Tag = "";
+            this.trackBarKernel.TickFrequency = 2;
+            this.trackBarKernel.Value = 3;
+            this.trackBarKernel.Scroll += new System.EventHandler(this.trackBarKernel_Scroll);
+            // 
             // desvioPadrao
             // 
-            this.desvioPadrao.Location = new System.Drawing.Point(24, 147);
+            this.desvioPadrao.Location = new System.Drawing.Point(214, 301);
             this.desvioPadrao.Maximum = new decimal(new int[] {
-            9,
+            10,
             0,
             0,
             0});
@@ -274,10 +391,11 @@
             0,
             0,
             0});
+            this.desvioPadrao.ValueChanged += new System.EventHandler(this.desvioPadrao_ValueChanged);
             // 
             // btnSuavConser
             // 
-            this.btnSuavConser.Location = new System.Drawing.Point(46, 385);
+            this.btnSuavConser.Location = new System.Drawing.Point(188, 379);
             this.btnSuavConser.Name = "btnSuavConser";
             this.btnSuavConser.Size = new System.Drawing.Size(125, 44);
             this.btnSuavConser.TabIndex = 18;
@@ -287,7 +405,7 @@
             // 
             // numOrdem
             // 
-            this.numOrdem.Location = new System.Drawing.Point(24, 97);
+            this.numOrdem.Location = new System.Drawing.Point(37, 151);
             this.numOrdem.Maximum = new decimal(new int[] {
             9,
             0,
@@ -309,7 +427,7 @@
             // 
             // btnGaussiana
             // 
-            this.btnGaussiana.Location = new System.Drawing.Point(97, 135);
+            this.btnGaussiana.Location = new System.Drawing.Point(188, 329);
             this.btnGaussiana.Name = "btnGaussiana";
             this.btnGaussiana.Size = new System.Drawing.Size(125, 44);
             this.btnGaussiana.TabIndex = 19;
@@ -319,7 +437,7 @@
             // 
             // btnOrdem
             // 
-            this.btnOrdem.Location = new System.Drawing.Point(97, 85);
+            this.btnOrdem.Location = new System.Drawing.Point(22, 179);
             this.btnOrdem.Name = "btnOrdem";
             this.btnOrdem.Size = new System.Drawing.Size(125, 44);
             this.btnOrdem.TabIndex = 17;
@@ -329,7 +447,7 @@
             // 
             // btnMediana
             // 
-            this.btnMediana.Location = new System.Drawing.Point(46, 335);
+            this.btnMediana.Location = new System.Drawing.Point(22, 379);
             this.btnMediana.Name = "btnMediana";
             this.btnMediana.Size = new System.Drawing.Size(125, 44);
             this.btnMediana.TabIndex = 16;
@@ -339,7 +457,7 @@
             // 
             // btConMed
             // 
-            this.btConMed.Location = new System.Drawing.Point(46, 285);
+            this.btConMed.Location = new System.Drawing.Point(22, 329);
             this.btConMed.Name = "btConMed";
             this.btConMed.Size = new System.Drawing.Size(125, 44);
             this.btConMed.TabIndex = 15;
@@ -349,7 +467,7 @@
             // 
             // btConMin
             // 
-            this.btConMin.Location = new System.Drawing.Point(46, 235);
+            this.btConMin.Location = new System.Drawing.Point(22, 279);
             this.btConMin.Name = "btConMin";
             this.btConMin.Size = new System.Drawing.Size(125, 44);
             this.btConMin.TabIndex = 14;
@@ -359,7 +477,7 @@
             // 
             // btConMax
             // 
-            this.btConMax.Location = new System.Drawing.Point(48, 185);
+            this.btConMax.Location = new System.Drawing.Point(22, 229);
             this.btConMax.Name = "btConMax";
             this.btConMax.Size = new System.Drawing.Size(125, 44);
             this.btConMax.TabIndex = 14;
@@ -369,32 +487,32 @@
             // 
             // chartEqual
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartEqual.ChartAreas.Add(chartArea4);
-            this.chartEqual.Location = new System.Drawing.Point(476, 241);
+            chartArea8.Name = "ChartArea1";
+            this.chartEqual.ChartAreas.Add(chartArea8);
+            this.chartEqual.Location = new System.Drawing.Point(555, 215);
             this.chartEqual.Name = "chartEqual";
-            series10.ChartArea = "ChartArea1";
-            series10.Color = System.Drawing.Color.Red;
-            series10.Legend = "Legend1";
-            series10.Name = "Red";
-            series11.ChartArea = "ChartArea1";
-            series11.Color = System.Drawing.Color.Lime;
-            series11.Legend = "Legend1";
-            series11.Name = "Green";
-            series12.ChartArea = "ChartArea1";
-            series12.Color = System.Drawing.Color.Blue;
-            series12.Legend = "Legend1";
-            series12.Name = "Blue";
-            this.chartEqual.Series.Add(series10);
-            this.chartEqual.Series.Add(series11);
-            this.chartEqual.Series.Add(series12);
-            this.chartEqual.Size = new System.Drawing.Size(429, 231);
+            series22.ChartArea = "ChartArea1";
+            series22.Color = System.Drawing.Color.Red;
+            series22.Legend = "Legend1";
+            series22.Name = "Red";
+            series23.ChartArea = "ChartArea1";
+            series23.Color = System.Drawing.Color.Lime;
+            series23.Legend = "Legend1";
+            series23.Name = "Green";
+            series24.ChartArea = "ChartArea1";
+            series24.Color = System.Drawing.Color.Blue;
+            series24.Legend = "Legend1";
+            series24.Name = "Blue";
+            this.chartEqual.Series.Add(series22);
+            this.chartEqual.Series.Add(series23);
+            this.chartEqual.Series.Add(series24);
+            this.chartEqual.Size = new System.Drawing.Size(365, 257);
             this.chartEqual.TabIndex = 12;
             this.chartEqual.Text = "chartEqual";
-            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.Name = "Title1";
-            title4.Text = "Histograma Imagem Equalizada";
-            this.chartEqual.Titles.Add(title4);
+            title8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title8.Name = "Title1";
+            title8.Text = "Histograma Imagem Equalizada";
+            this.chartEqual.Titles.Add(title8);
             // 
             // groupRecorte
             // 
@@ -407,7 +525,7 @@
             this.groupRecorte.Controls.Add(this.numVertRecorte1);
             this.groupRecorte.Controls.Add(this.numHorizRecort1);
             this.groupRecorte.Controls.Add(this.buttonRecorte);
-            this.groupRecorte.Location = new System.Drawing.Point(671, 30);
+            this.groupRecorte.Location = new System.Drawing.Point(686, 30);
             this.groupRecorte.Name = "groupRecorte";
             this.groupRecorte.Size = new System.Drawing.Size(234, 167);
             this.groupRecorte.TabIndex = 9;
@@ -510,25 +628,24 @@
             // 
             // gbEfeitos
             // 
-            this.gbEfeitos.Controls.Add(this.btnEqualizar);
-            this.gbEfeitos.Controls.Add(this.numericUpDownLimiar);
-            this.gbEfeitos.Controls.Add(this.btnBinario);
+            this.gbEfeitos.Controls.Add(this.nUDMultiplicacao);
+            this.gbEfeitos.Controls.Add(this.bDivisao);
+            this.gbEfeitos.Controls.Add(this.numUpDDiv);
+            this.gbEfeitos.Controls.Add(this.bMultiplicacao);
             this.gbEfeitos.Controls.Add(this.numericUDcontraste);
             this.gbEfeitos.Controls.Add(this.numericUDBrilho);
             this.gbEfeitos.Controls.Add(this.btnBrilho);
             this.gbEfeitos.Controls.Add(this.btnContraste);
-            this.gbEfeitos.Controls.Add(this.btnCinza);
-            this.gbEfeitos.Controls.Add(this.btnNegativo);
-            this.gbEfeitos.Location = new System.Drawing.Point(6, 30);
+            this.gbEfeitos.Location = new System.Drawing.Point(16, 31);
             this.gbEfeitos.Name = "gbEfeitos";
-            this.gbEfeitos.Size = new System.Drawing.Size(441, 169);
+            this.gbEfeitos.Size = new System.Drawing.Size(151, 442);
             this.gbEfeitos.TabIndex = 7;
             this.gbEfeitos.TabStop = false;
-            this.gbEfeitos.Text = "Efeitos";
+            this.gbEfeitos.Text = "Operações Aritméticas";
             // 
             // btnEqualizar
             // 
-            this.btnEqualizar.Location = new System.Drawing.Point(305, 109);
+            this.btnEqualizar.Location = new System.Drawing.Point(149, 109);
             this.btnEqualizar.Name = "btnEqualizar";
             this.btnEqualizar.Size = new System.Drawing.Size(125, 44);
             this.btnEqualizar.TabIndex = 11;
@@ -536,21 +653,9 @@
             this.btnEqualizar.UseVisualStyleBackColor = true;
             this.btnEqualizar.Click += new System.EventHandler(this.btnEqualizar_Click);
             // 
-            // numericUpDownLimiar
-            // 
-            this.numericUpDownLimiar.Location = new System.Drawing.Point(315, 22);
-            this.numericUpDownLimiar.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDownLimiar.Name = "numericUpDownLimiar";
-            this.numericUpDownLimiar.Size = new System.Drawing.Size(67, 22);
-            this.numericUpDownLimiar.TabIndex = 10;
-            // 
             // btnBinario
             // 
-            this.btnBinario.Location = new System.Drawing.Point(305, 49);
+            this.btnBinario.Location = new System.Drawing.Point(18, 59);
             this.btnBinario.Name = "btnBinario";
             this.btnBinario.Size = new System.Drawing.Size(125, 44);
             this.btnBinario.TabIndex = 10;
@@ -560,7 +665,7 @@
             // 
             // numericUDcontraste
             // 
-            this.numericUDcontraste.Location = new System.Drawing.Point(168, 22);
+            this.numericUDcontraste.Location = new System.Drawing.Point(18, 151);
             this.numericUDcontraste.Maximum = new decimal(new int[] {
             255,
             0,
@@ -572,7 +677,7 @@
             // 
             // numericUDBrilho
             // 
-            this.numericUDBrilho.Location = new System.Drawing.Point(12, 22);
+            this.numericUDBrilho.Location = new System.Drawing.Point(18, 51);
             this.numericUDBrilho.Maximum = new decimal(new int[] {
             255,
             0,
@@ -584,7 +689,7 @@
             // 
             // btnCinza
             // 
-            this.btnCinza.Location = new System.Drawing.Point(156, 109);
+            this.btnCinza.Location = new System.Drawing.Point(149, 59);
             this.btnCinza.Name = "btnCinza";
             this.btnCinza.Size = new System.Drawing.Size(125, 44);
             this.btnCinza.TabIndex = 6;
@@ -596,7 +701,7 @@
             // 
             this.groupInverter.Controls.Add(this.btnFlipUD);
             this.groupInverter.Controls.Add(this.btnFlipLR);
-            this.groupInverter.Location = new System.Drawing.Point(469, 30);
+            this.groupInverter.Location = new System.Drawing.Point(491, 31);
             this.groupInverter.Name = "groupInverter";
             this.groupInverter.Size = new System.Drawing.Size(180, 167);
             this.groupInverter.TabIndex = 8;
@@ -605,7 +710,7 @@
             // 
             // btnFlipUD
             // 
-            this.btnFlipUD.Location = new System.Drawing.Point(26, 109);
+            this.btnFlipUD.Location = new System.Drawing.Point(26, 108);
             this.btnFlipUD.Name = "btnFlipUD";
             this.btnFlipUD.Size = new System.Drawing.Size(125, 44);
             this.btnFlipUD.TabIndex = 5;
@@ -628,9 +733,9 @@
             this.groupBoxImg2.Controls.Add(this.groupBox5);
             this.groupBoxImg2.Controls.Add(this.btnConcatenar);
             this.groupBoxImg2.Controls.Add(this.groupBox1);
-            this.groupBoxImg2.Location = new System.Drawing.Point(932, 30);
+            this.groupBoxImg2.Location = new System.Drawing.Point(935, 31);
             this.groupBoxImg2.Name = "groupBoxImg2";
-            this.groupBoxImg2.Size = new System.Drawing.Size(310, 442);
+            this.groupBoxImg2.Size = new System.Drawing.Size(334, 442);
             this.groupBoxImg2.TabIndex = 10;
             this.groupBoxImg2.TabStop = false;
             this.groupBoxImg2.Text = "Segunda imagem";
@@ -641,7 +746,7 @@
             this.groupBox5.Controls.Add(this.buttonNOT);
             this.groupBox5.Controls.Add(this.buttonOR);
             this.groupBox5.Controls.Add(this.buttonAND);
-            this.groupBox5.Location = new System.Drawing.Point(6, 279);
+            this.groupBox5.Location = new System.Drawing.Point(19, 279);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(298, 157);
             this.groupBox5.TabIndex = 11;
@@ -650,7 +755,7 @@
             // 
             // buttonXOR
             // 
-            this.buttonXOR.Location = new System.Drawing.Point(156, 91);
+            this.buttonXOR.Location = new System.Drawing.Point(152, 91);
             this.buttonXOR.Name = "buttonXOR";
             this.buttonXOR.Size = new System.Drawing.Size(125, 44);
             this.buttonXOR.TabIndex = 13;
@@ -660,7 +765,7 @@
             // 
             // buttonNOT
             // 
-            this.buttonNOT.Location = new System.Drawing.Point(25, 91);
+            this.buttonNOT.Location = new System.Drawing.Point(21, 91);
             this.buttonNOT.Name = "buttonNOT";
             this.buttonNOT.Size = new System.Drawing.Size(125, 44);
             this.buttonNOT.TabIndex = 12;
@@ -670,7 +775,7 @@
             // 
             // buttonOR
             // 
-            this.buttonOR.Location = new System.Drawing.Point(156, 41);
+            this.buttonOR.Location = new System.Drawing.Point(152, 41);
             this.buttonOR.Name = "buttonOR";
             this.buttonOR.Size = new System.Drawing.Size(125, 44);
             this.buttonOR.TabIndex = 11;
@@ -680,7 +785,7 @@
             // 
             // buttonAND
             // 
-            this.buttonAND.Location = new System.Drawing.Point(25, 41);
+            this.buttonAND.Location = new System.Drawing.Point(21, 41);
             this.buttonAND.Name = "buttonAND";
             this.buttonAND.Size = new System.Drawing.Size(125, 44);
             this.buttonAND.TabIndex = 10;
@@ -690,7 +795,7 @@
             // 
             // btnConcatenar
             // 
-            this.btnConcatenar.Location = new System.Drawing.Point(31, 36);
+            this.btnConcatenar.Location = new System.Drawing.Point(44, 36);
             this.btnConcatenar.Name = "btnConcatenar";
             this.btnConcatenar.Size = new System.Drawing.Size(125, 44);
             this.btnConcatenar.TabIndex = 6;
@@ -705,7 +810,7 @@
             this.groupBox1.Controls.Add(this.btnMedia);
             this.groupBox1.Controls.Add(this.btnSubtrairImagens);
             this.groupBox1.Controls.Add(this.btnSomar);
-            this.groupBox1.Location = new System.Drawing.Point(6, 97);
+            this.groupBox1.Location = new System.Drawing.Point(19, 97);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(298, 176);
             this.groupBox1.TabIndex = 10;
@@ -721,7 +826,7 @@
             // 
             // btnBlending
             // 
-            this.btnBlending.Location = new System.Drawing.Point(25, 64);
+            this.btnBlending.Location = new System.Drawing.Point(21, 64);
             this.btnBlending.Name = "btnBlending";
             this.btnBlending.Size = new System.Drawing.Size(125, 44);
             this.btnBlending.TabIndex = 10;
@@ -731,7 +836,7 @@
             // 
             // btnMedia
             // 
-            this.btnMedia.Location = new System.Drawing.Point(156, 64);
+            this.btnMedia.Location = new System.Drawing.Point(152, 64);
             this.btnMedia.Name = "btnMedia";
             this.btnMedia.Size = new System.Drawing.Size(125, 44);
             this.btnMedia.TabIndex = 9;
@@ -741,7 +846,7 @@
             // 
             // btnSubtrairImagens
             // 
-            this.btnSubtrairImagens.Location = new System.Drawing.Point(156, 114);
+            this.btnSubtrairImagens.Location = new System.Drawing.Point(152, 114);
             this.btnSubtrairImagens.Name = "btnSubtrairImagens";
             this.btnSubtrairImagens.Size = new System.Drawing.Size(125, 44);
             this.btnSubtrairImagens.TabIndex = 8;
@@ -751,7 +856,7 @@
             // 
             // btnSomar
             // 
-            this.btnSomar.Location = new System.Drawing.Point(25, 114);
+            this.btnSomar.Location = new System.Drawing.Point(21, 114);
             this.btnSomar.Name = "btnSomar";
             this.btnSomar.Size = new System.Drawing.Size(125, 44);
             this.btnSomar.TabIndex = 7;
@@ -761,55 +866,61 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.Controls.Add(this.pictureBoxOriginal);
             this.groupBox2.Location = new System.Drawing.Point(12, 67);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(469, 336);
+            this.groupBox2.Size = new System.Drawing.Size(608, 385);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Primeira Imagem";
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox3.Controls.Add(this.pictureBoxEditada);
-            this.groupBox3.Location = new System.Drawing.Point(1003, 67);
+            this.groupBox3.Location = new System.Drawing.Point(1301, 67);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(469, 336);
+            this.groupBox3.Size = new System.Drawing.Size(608, 385);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Editada";
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox4.Controls.Add(this.pictureBox2);
-            this.groupBox4.Location = new System.Drawing.Point(507, 67);
+            this.groupBox4.Location = new System.Drawing.Point(656, 67);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(469, 336);
+            this.groupBox4.Size = new System.Drawing.Size(608, 385);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Segunda Imagem";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(20, 28);
+            this.pictureBox2.Location = new System.Drawing.Point(17, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(429, 284);
+            this.pictureBox2.Size = new System.Drawing.Size(574, 340);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
             // btnCarregar2
             // 
-            this.btnCarregar2.Location = new System.Drawing.Point(812, 22);
+            this.btnCarregar2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCarregar2.Location = new System.Drawing.Point(1083, 22);
             this.btnCarregar2.Name = "btnCarregar2";
             this.btnCarregar2.Size = new System.Drawing.Size(164, 39);
             this.btnCarregar2.TabIndex = 10;
-            this.btnCarregar2.Text = "Caregar outra imagem";
+            this.btnCarregar2.Text = "Carregar outra imagem";
             this.btnCarregar2.UseVisualStyleBackColor = true;
             this.btnCarregar2.Click += new System.EventHandler(this.btnCarregar2_Click);
             // 
             // SaveImage
             // 
-            this.SaveImage.Location = new System.Drawing.Point(1318, 22);
+            this.SaveImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SaveImage.Location = new System.Drawing.Point(1736, 22);
             this.SaveImage.Name = "SaveImage";
             this.SaveImage.Size = new System.Drawing.Size(154, 39);
             this.SaveImage.TabIndex = 11;
@@ -817,68 +928,203 @@
             this.SaveImage.UseVisualStyleBackColor = true;
             this.SaveImage.Click += new System.EventHandler(this.SaveImage_Click);
             // 
-            // trackBarKernel
+            // groupBox7
             // 
-            this.trackBarKernel.LargeChange = 2;
-            this.trackBarKernel.Location = new System.Drawing.Point(37, 27);
-            this.trackBarKernel.Maximum = 7;
-            this.trackBarKernel.Minimum = 3;
-            this.trackBarKernel.Name = "trackBarKernel";
-            this.trackBarKernel.Size = new System.Drawing.Size(166, 56);
-            this.trackBarKernel.TabIndex = 21;
-            this.trackBarKernel.Tag = "";
-            this.trackBarKernel.TickFrequency = 2;
-            this.trackBarKernel.Value = 3;
+            this.groupBox7.Controls.Add(this.bContorno);
+            this.groupBox7.Controls.Add(this.bFechamento);
+            this.groupBox7.Controls.Add(this.bErosao);
+            this.groupBox7.Controls.Add(this.bDilatacao);
+            this.groupBox7.Controls.Add(this.bAbertura);
+            this.groupBox7.Location = new System.Drawing.Point(1629, 182);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(277, 290);
+            this.groupBox7.TabIndex = 26;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Operações Morfológicas";
             // 
-            // label5
+            // bErosao
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 63);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 16);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "3x3";
+            this.bErosao.Location = new System.Drawing.Point(80, 78);
+            this.bErosao.Name = "bErosao";
+            this.bErosao.Size = new System.Drawing.Size(125, 44);
+            this.bErosao.TabIndex = 19;
+            this.bErosao.Text = "Erosão";
+            this.bErosao.UseVisualStyleBackColor = true;
+            this.bErosao.Click += new System.EventHandler(this.bErosao_Click);
             // 
-            // label6
+            // bDilatacao
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(111, 63);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 16);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "5x5";
+            this.bDilatacao.Location = new System.Drawing.Point(80, 28);
+            this.bDilatacao.Name = "bDilatacao";
+            this.bDilatacao.Size = new System.Drawing.Size(125, 44);
+            this.bDilatacao.TabIndex = 17;
+            this.bDilatacao.Text = "Dilatação";
+            this.bDilatacao.UseVisualStyleBackColor = true;
+            this.bDilatacao.Click += new System.EventHandler(this.bDilatacao_Click);
             // 
-            // label7
+            // bAbertura
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(176, 63);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 16);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "7x7";
+            this.bAbertura.Location = new System.Drawing.Point(80, 128);
+            this.bAbertura.Name = "bAbertura";
+            this.bAbertura.Size = new System.Drawing.Size(125, 44);
+            this.bAbertura.TabIndex = 14;
+            this.bAbertura.Text = "Abertura";
+            this.bAbertura.UseVisualStyleBackColor = true;
+            this.bAbertura.Click += new System.EventHandler(this.bAbertura_Click);
+            // 
+            // bFechamento
+            // 
+            this.bFechamento.Location = new System.Drawing.Point(80, 178);
+            this.bFechamento.Name = "bFechamento";
+            this.bFechamento.Size = new System.Drawing.Size(125, 44);
+            this.bFechamento.TabIndex = 20;
+            this.bFechamento.Text = "Fechamento";
+            this.bFechamento.UseVisualStyleBackColor = true;
+            this.bFechamento.Click += new System.EventHandler(this.bFechamento_Click);
+            // 
+            // bMultiplicacao
+            // 
+            this.bMultiplicacao.Location = new System.Drawing.Point(12, 279);
+            this.bMultiplicacao.Name = "bMultiplicacao";
+            this.bMultiplicacao.Size = new System.Drawing.Size(125, 44);
+            this.bMultiplicacao.TabIndex = 12;
+            this.bMultiplicacao.Text = "Multiplicação";
+            this.bMultiplicacao.UseVisualStyleBackColor = true;
+            this.bMultiplicacao.Click += new System.EventHandler(this.bMultiplicacao_Click);
+            // 
+            // bDivisao
+            // 
+            this.bDivisao.Location = new System.Drawing.Point(12, 379);
+            this.bDivisao.Name = "bDivisao";
+            this.bDivisao.Size = new System.Drawing.Size(125, 44);
+            this.bDivisao.TabIndex = 13;
+            this.bDivisao.Text = "Divisão";
+            this.bDivisao.UseVisualStyleBackColor = true;
+            this.bDivisao.Click += new System.EventHandler(this.bDivisao_Click);
+            // 
+            // numericUpDownLimiar
+            // 
+            this.numericUpDownLimiar.Location = new System.Drawing.Point(29, 33);
+            this.numericUpDownLimiar.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDownLimiar.Name = "numericUpDownLimiar";
+            this.numericUpDownLimiar.Size = new System.Drawing.Size(67, 22);
+            this.numericUpDownLimiar.TabIndex = 10;
+            // 
+            // numUpDDiv
+            // 
+            this.numUpDDiv.Location = new System.Drawing.Point(18, 351);
+            this.numUpDDiv.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numUpDDiv.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDDiv.Name = "numUpDDiv";
+            this.numUpDDiv.Size = new System.Drawing.Size(67, 22);
+            this.numUpDDiv.TabIndex = 13;
+            this.numUpDDiv.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nUDMultiplicacao
+            // 
+            this.nUDMultiplicacao.Location = new System.Drawing.Point(18, 251);
+            this.nUDMultiplicacao.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nUDMultiplicacao.Name = "nUDMultiplicacao";
+            this.nUDMultiplicacao.Size = new System.Drawing.Size(67, 22);
+            this.nUDMultiplicacao.TabIndex = 14;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.btnCinza);
+            this.groupBox8.Controls.Add(this.btnBinario);
+            this.groupBox8.Controls.Add(this.btnEqualizar);
+            this.groupBox8.Controls.Add(this.btnNegativo);
+            this.groupBox8.Controls.Add(this.numericUpDownLimiar);
+            this.groupBox8.Location = new System.Drawing.Point(182, 31);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(294, 166);
+            this.groupBox8.TabIndex = 9;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Efeitos";
+            // 
+            // pBoxKernelGaussiano
+            // 
+            this.pBoxKernelGaussiano.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pBoxKernelGaussiano.Location = new System.Drawing.Point(171, 169);
+            this.pBoxKernelGaussiano.Name = "pBoxKernelGaussiano";
+            this.pBoxKernelGaussiano.Size = new System.Drawing.Size(110, 100);
+            this.pBoxKernelGaussiano.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pBoxKernelGaussiano.TabIndex = 25;
+            this.pBoxKernelGaussiano.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 16);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Tamanho do Kernel:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(168, 150);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(116, 16);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Kernel Gaussiano:";
+            // 
+            // bContorno
+            // 
+            this.bContorno.Location = new System.Drawing.Point(80, 228);
+            this.bContorno.Name = "bContorno";
+            this.bContorno.Size = new System.Drawing.Size(125, 44);
+            this.bContorno.TabIndex = 21;
+            this.bContorno.Text = "Contorno";
+            this.bContorno.UseVisualStyleBackColor = true;
+            this.bContorno.Click += new System.EventHandler(this.bContorno_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1638, 916);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1924, 953);
             this.Controls.Add(this.SaveImage);
             this.Controls.Add(this.btnCarregar2);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.pictureBoxOriginal);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxOpcoes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditada)).EndInit();
             this.groupBoxOpcoes.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartOriginal)).EndInit();
             this.gbconvolucao.ResumeLayout(false);
             this.gbconvolucao.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarKernel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.desvioPadrao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOrdem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartEqual)).EndInit();
@@ -889,7 +1135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numVertRecorte1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHorizRecort1)).EndInit();
             this.gbEfeitos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLimiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUDcontraste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUDBrilho)).EndInit();
             this.groupInverter.ResumeLayout(false);
@@ -897,10 +1142,16 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nUDBlending)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarKernel)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLimiar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDDiv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMultiplicacao)).EndInit();
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxKernelGaussiano)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -940,7 +1191,6 @@
         private System.Windows.Forms.Button btnConcatenar;
         private System.Windows.Forms.GroupBox groupBoxImg2;
         private System.Windows.Forms.Button btnSomar;
-        private System.Windows.Forms.NumericUpDown numericUpDownLimiar;
         private System.Windows.Forms.Button btnBinario;
         private System.Windows.Forms.Button btnSubtrairImagens;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartOriginal;
@@ -969,6 +1219,25 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TrackBar trackBarKernel;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button bSobel;
+        private System.Windows.Forms.Button bPrewitt;
+        private System.Windows.Forms.Button bLaplaciano;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button bErosao;
+        private System.Windows.Forms.Button bDilatacao;
+        private System.Windows.Forms.Button bAbertura;
+        private System.Windows.Forms.Button bFechamento;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.NumericUpDown numericUpDownLimiar;
+        private System.Windows.Forms.NumericUpDown nUDMultiplicacao;
+        private System.Windows.Forms.Button bDivisao;
+        private System.Windows.Forms.NumericUpDown numUpDDiv;
+        private System.Windows.Forms.Button bMultiplicacao;
+        private System.Windows.Forms.PictureBox pBoxKernelGaussiano;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button bContorno;
     }
 }
 

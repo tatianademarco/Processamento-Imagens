@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProcessamentodeImagem
 {
@@ -16,7 +17,7 @@ namespace ProcessamentodeImagem
         {
         }
 
-        public void SalvarImagem(Image pictureBoxEditada)
+        public void SalvarImagem(System.Drawing.Image pictureBoxEditada)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Arquivos de imagem|*.png;*.bmp;*.jpg";
@@ -115,6 +116,62 @@ namespace ProcessamentodeImagem
                 }
             }
 
+            return bitmap;
+        }
+
+        public Bitmap Multiplicar(int valorMultiplicacao)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Color originalColor = imagemOriginal1.bitmap.GetPixel(x, y);
+
+                    int red = originalColor.R * valorMultiplicacao;
+                    if (red > 255)
+                    {
+                        red = 255;
+                    }
+
+                    int green = originalColor.G * valorMultiplicacao;
+                    if (green > 255)
+                    {
+                        green = 255;
+                    }
+
+                    int blue = originalColor.B * valorMultiplicacao;
+                    if (blue > 255)
+                    {
+                        blue = 255;
+                    }
+
+                    Color newColor = Color.FromArgb(red, green, blue);
+
+                    bitmap.SetPixel(x, y, newColor);
+                }
+            }
+            return bitmap;
+        }
+
+        public Bitmap Dividir(int valorDivisao)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Color originalColor = imagemOriginal1.bitmap.GetPixel(x, y);
+
+                    int red = originalColor.R / valorDivisao;
+
+                    int green = originalColor.G / valorDivisao;
+
+                    int blue = originalColor.B / valorDivisao;
+
+                    Color newColor = Color.FromArgb(red, green, blue);
+
+                    bitmap.SetPixel(x, y, newColor);
+                }
+            }
             return bitmap;
         }
 
@@ -731,7 +788,7 @@ namespace ProcessamentodeImagem
             return bitmap;
         }
 
-        public Bitmap FiltrarMaximo()
+        public Bitmap FiltrarMaximo(int sizeKernel)
         {
             for (int y = 0; y < height; y++)
             {
@@ -741,9 +798,9 @@ namespace ProcessamentodeImagem
                     int maxPixelG = 0;
                     int maxPixelB = 0;
 
-                    for (int j = y-1; j <= y+1; j++)
+                    for (int j = y - (sizeKernel/2); j <= y + (sizeKernel / 2); j++)
                     {
-                        for (int i = x-1; i <= x+1; i++)
+                        for (int i = x - (sizeKernel / 2); i <= x + (sizeKernel / 2); i++)
                         {
                             if (i >= 0 && j >= 0 && j < height && i < width){
                                 Color colorPixel = imagemOriginal1.bitmap.GetPixel(i, j);
@@ -763,7 +820,7 @@ namespace ProcessamentodeImagem
             return bitmap;
         }
 
-        public Bitmap FiltrarMinimo()
+        public Bitmap FiltrarMinimo(int sizeKernel)
         {
             for (int y = 0; y < height; y++)
             {
@@ -773,9 +830,9 @@ namespace ProcessamentodeImagem
                     int minPixelG = 255;
                     int minPixelB = 255;
 
-                    for (int j = y - 1; j <= y + 1; j++)
+                    for (int j = y - (sizeKernel/2); j <= y + sizeKernel/2; j++)
                     {
-                        for (int i = x - 1; i <= x + 1; i++)
+                        for (int i = x - sizeKernel/2; i <= x + sizeKernel/2; i++)
                         {
                             if (i >= 0 && j >= 0 && j < height && i < width)
                             {
@@ -796,7 +853,7 @@ namespace ProcessamentodeImagem
             return bitmap;
         }
 
-        public Bitmap FiltrarMedia()
+        public Bitmap FiltrarMedia(int sizeKernel)
         {
             for (int y = 0; y < height; y++)
             {
@@ -804,9 +861,9 @@ namespace ProcessamentodeImagem
                 {
                     int meanPixelR, meanPixelG, meanPixelB, somaPixelR=0, somaPixelG=0, somaPixelB=0, totalPixels=0;
 
-                    for (int j = y - 1; j <= y + 1; j++)
+                    for (int j = y - sizeKernel/2; j <= y + sizeKernel/2; j++)
                     {
-                        for (int i = x - 1; i <= x + 1; i++)
+                        for (int i = x - sizeKernel/2; i <= x + sizeKernel/2; i++)
                         {
                             if (i >= 0 && j >= 0 && j < height && i < width)
                             {
@@ -832,7 +889,7 @@ namespace ProcessamentodeImagem
             return bitmap;
         }
 
-        public Bitmap FiltrarMediana()
+        public Bitmap FiltrarMediana(int sizeKernel)
         {
             for (int y = 0; y < height; y++)
             {
@@ -843,9 +900,9 @@ namespace ProcessamentodeImagem
                     List<int> pixelsB = new List<int>();
                     int medianaR, medianaG, medianaB;
 
-                    for (int j = y - 1; j <= y + 1; j++)
+                    for (int j = y - sizeKernel/2; j <= y + sizeKernel/2; j++)
                     {
-                        for (int i = x - 1; i <= x + 1; i++)
+                        for (int i = x - sizeKernel/2; i <= x + sizeKernel/2; i++)
                         {
                             if (i >= 0 && j >= 0 && j < height && i < width)
                             {
@@ -882,7 +939,7 @@ namespace ProcessamentodeImagem
             return bitmap;
         }
 
-        public Bitmap FiltrarOrdem(int ordem)
+        public Bitmap FiltrarOrdem(int ordem, int sizeKernel)
         {
             for (int y = 0; y < height; y++)
             {
@@ -892,9 +949,9 @@ namespace ProcessamentodeImagem
                     List<int> pixelsG = new List<int>();
                     List<int> pixelsB = new List<int>();
 
-                    for (int j = y - 1; j <= y + 1; j++)
+                    for (int j = y - sizeKernel/2; j <= y + sizeKernel/2; j++)
                     {
-                        for (int i = x - 1; i <= x + 1; i++)
+                        for (int i = x - sizeKernel/2; i <= x + sizeKernel/2; i++)
                         {
                             if (i >= 0 && j >= 0 && j < height && i < width)
                             {
@@ -910,19 +967,7 @@ namespace ProcessamentodeImagem
                     pixelsG.Sort();
                     pixelsB.Sort();
 
-                    Color ordemColor;
-
-                    if (pixelsR.Count == 6)
-                    {
-                        ordemColor = Color.FromArgb(pixelsR[(int)(ordem * 0.66)], pixelsR[(int)(ordem * 0.66)], pixelsR[(int)(ordem * 0.66)]);
-                    }
-                    else if (pixelsR.Count == 4) {
-                        ordemColor = Color.FromArgb(pixelsR[(int)(ordem * 0.44)], pixelsR[(int)(ordem * 0.44)], pixelsR[(int)(ordem * 0.44)]);
-                    }
-                    else
-                    {
-                        ordemColor = Color.FromArgb(pixelsR[ordem - 1], pixelsR[ordem - 1], pixelsR[ordem - 1]);
-                    }
+                    Color ordemColor = Color.FromArgb(pixelsR[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))], pixelsR[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))], pixelsR[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))]);                
 
                     bitmap.SetPixel(x, y, ordemColor);
                 }
@@ -930,7 +975,7 @@ namespace ProcessamentodeImagem
             return bitmap;
         }
 
-        public Bitmap FiltrarSuavizacaoConservativa()
+        public Bitmap FiltrarSuavizacaoConservativa(int sizeKernel)
         {
             for (int y = 0; y < height; y++)
             {
@@ -940,9 +985,9 @@ namespace ProcessamentodeImagem
                     List<int> pixelsG = new List<int>();
                     List<int> pixelsB = new List<int>();
 
-                    for (int j = y - 1; j <= y + 1; j++)
+                    for (int j = y - sizeKernel/2; j <= y + sizeKernel/2; j++)
                     {
-                        for (int i = x - 1; i <= x + 1; i++)
+                        for (int i = x - sizeKernel/2; i <= x + sizeKernel/2; i++)
                         {
                             if (i >= 0 && j >= 0 && j < height && i < width)
                             {
@@ -1032,8 +1077,53 @@ namespace ProcessamentodeImagem
                     kernel[i, j] /= somaKernel;
                 }
             }
-
             return kernel;
+        }
+
+        public Bitmap GerarImagemKernelGaussiano(double[,] kernel, int sizeKernel)
+        {
+            double valorMax = 0;
+
+            for (int j = 0; j < sizeKernel; j++)
+            {
+                for (int i = 0; i < sizeKernel; i++)
+                {
+                    valorMax = (kernel[j,i] > valorMax) ? kernel[j, i]: valorMax;
+                }
+            }
+
+            Bitmap newKernel = new Bitmap(sizeKernel, sizeKernel);
+
+            for (int x = 0; x < sizeKernel; x++)
+            {
+                for (int y = 0; y < sizeKernel; y++)
+                {
+                    newKernel.SetPixel(x, y, Color.FromArgb((int)(kernel[x,y]*255/valorMax), (int)(kernel[x, y] * 255 / valorMax), (int)(kernel[x, y] * 255 / valorMax)));
+                }
+            }
+
+            int newWidth = 100;
+            int newHeight = 100;
+
+            Bitmap bitmapRedimensionado = new Bitmap(newWidth, newHeight);
+
+            float escalaX = (float)sizeKernel / newWidth;
+            float escalaY = (float)sizeKernel / newHeight;
+
+            for (int y = 0; y < newHeight; y++)
+            {
+                for (int x = 0; x < newWidth; x++)
+                {
+                    int originalX = (int)(x * escalaX);
+                    int originalY = (int)(y * escalaY);
+
+                    Color originalColor = newKernel.GetPixel(originalX, originalY);
+
+                    bitmapRedimensionado.SetPixel(x, y, originalColor);
+                }
+            }
+
+            return bitmapRedimensionado;
         }
 
         public Bitmap AplicarFiltroGaussiano(double sigma, int sizeKernel)
@@ -1045,6 +1135,7 @@ namespace ProcessamentodeImagem
                 for (int x = 0; x < width; x++)
                 {
                     double red = 0, green = 0, blue = 0, soma = 0;
+
                     for (int j = y - (sizeKernel/2); j <= y + (sizeKernel / 2); j++)
                     {
                         for (int i = x - (sizeKernel / 2); i <= x + (sizeKernel / 2); i++)
@@ -1068,6 +1159,205 @@ namespace ProcessamentodeImagem
                 }
             }
             return bitmap;
+        }
+
+        public Bitmap AplicarFiltroDeteccaoDeBordas(String mascara)
+        {
+            int[,] filtroX = new int[3, 3];
+            int[,] filtroY = new int[3, 3];
+
+            if (mascara == "Prewitt")
+            {
+                filtroX = new int[,] { { 1, 0, -1 },
+                                     { 1, 0, -1 },
+                                     { 1, 0, -1 } };
+
+                filtroY = new int[,] { { 1, 1, 1 },
+                                     { 0, 0, 0 },
+                                     { -1, -1, -1 } };
+
+            } else if (mascara == "Sobel")
+            {
+                filtroX = new int[,] { { 1, 0, -1 },
+                                       { 2, 0, -2 },
+                                       { 1, 0, -1 } };
+
+                filtroY = new int[,] { { 1, 2, 1 },
+                                       { 0, 0, 0 },
+                                       { -1, -2, -1 } };
+
+            } else if (mascara == "Laplaciano")
+            {
+                filtroX = new int[,] { { 0, 1, 0 },
+                                       { 1, -4, 1 },
+                                       { 0, 1, 0 } };
+
+                filtroY = new int[,] { { 0, -1, 0 },
+                                       { -1, 4, -1 },
+                                       { 0, -1, 0 } };
+            }
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int gX = 0, gY = 0;
+
+                    for (int j = y - 1; j <= y + 1; j++)
+                    {
+                        for (int i = x - 1; i <= x + 1; i++)
+                        {
+                            if (i >= 0 && j >= 0 && j < height && i < width)
+                            {
+                                Color colorPixel = imagemOriginal1.bitmap.GetPixel(i, j);
+
+                                int escalaCinza = (colorPixel.R + colorPixel.G + colorPixel.B) / 3;
+
+                                gX += escalaCinza * filtroX[i - x + 1, j - y + 1];
+                                gY += escalaCinza * filtroY[i - x + 1, j - y + 1];
+                            }
+                        }
+                    }
+                    int magnitude = (int)Math.Sqrt(gX * gX + gY * gY);
+                    magnitude = Math.Min(Math.Max(magnitude, 0), 255);
+                    bitmap.SetPixel(x, y, Color.FromArgb(magnitude, magnitude, magnitude));
+                }
+            }
+            return bitmap;
+        }
+
+        public Bitmap AplicarDilatacao(Bitmap imagem)
+        {
+            Bitmap binario = this.TransformarBinario(imagem, 128);
+
+            int[,] elementoEstruturante = new int[,] { { 0, 1, 0 },
+                                                       { 1, 1, 1 },
+                                                       { 0, 1, 0 } };
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int newPixel = 0;
+
+                    for (int j = y - 1; j <= y + 1; j++)
+                    {
+                        if (newPixel == 255) break;
+
+                        for (int i = x - 1; i <= x + 1; i++)
+                        {
+                            if (i >= 0 && j >= 0 && j < height && i < width)
+                            {
+                                Color colorPixel = binario.GetPixel(i, j);
+
+                                if (elementoEstruturante[i - x + 1, j - y + 1] == 1 && colorPixel.R == 255)
+                                {
+                                    newPixel = 255;
+
+                                    break;
+
+                                } else
+                                {
+                                    newPixel = 0;
+                                }
+                            }
+                        }
+                    }
+                    bitmap.SetPixel(x, y, Color.FromArgb(newPixel, newPixel, newPixel));
+                }
+            }
+            return bitmap;
+        }
+
+        public Bitmap AplicarErosao(Bitmap imagem)
+        {
+            Bitmap binario = this.TransformarBinario(imagem, 128);
+
+            Bitmap bitmap2 = new Bitmap(width, height);
+
+            int[,] elementoEstruturante = new int[,] { { 0, 1, 0 },
+                                                       { 1, 1, 1 },
+                                                       { 0, 1, 0 } };
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int newPixel = 1;
+
+                    for (int j = y - 1; j <= y + 1; j++)
+                    {
+                        if (newPixel == 0) break;
+
+                        for (int i = x - 1; i <= x + 1; i++)
+                        {
+                            if (i >= 0 && j >= 0 && j < height && i < width)
+                            {
+                                Color colorPixel = binario.GetPixel(i, j);
+
+                                if (elementoEstruturante[i - x + 1, j - y + 1] == 1 && colorPixel.R == 0)
+                                {
+                                    newPixel = 0;
+
+                                    break;
+                                }
+                                else
+                                {
+                                    newPixel = 255;
+                                }
+                            }
+                        }
+                    }
+                    bitmap2.SetPixel(x, y, Color.FromArgb(newPixel, newPixel, newPixel));
+                }
+            }
+            return bitmap2;
+        }
+
+        public Bitmap AplicarAbertura()
+        {
+            Bitmap bitmapOpen = this.AplicarErosao(imagemOriginal1.bitmap);
+
+            bitmapOpen = this.AplicarDilatacao(bitmapOpen);
+
+            return bitmapOpen;
+        }
+
+        public Bitmap AplicarFechamento()
+        {
+            Bitmap bitmapClosing = this.AplicarDilatacao(imagemOriginal1.bitmap);
+
+            bitmapClosing = this.AplicarErosao(bitmapClosing);
+
+            return bitmapClosing;
+        }
+
+        public Bitmap AplicarContorno()
+        {
+            Bitmap bitmapContorno = this.AplicarErosao(imagemOriginal1.bitmap);
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Color originalColor = imagemOriginal1.bitmap.GetPixel(x, y);
+                    Color originalColor2 = bitmapContorno.GetPixel(x, y);
+
+                    int subtR = originalColor.R - originalColor2.R;
+                    subtR = (subtR < 0) ? 0 : subtR;
+
+                    int subtG = originalColor.G - originalColor2.G;
+                    subtG = (subtG < 0) ? 0 : subtG;
+
+                    int subtB = originalColor.B - originalColor2.B;
+                    subtB = (subtB < 0) ? 0 : subtB;
+
+                    Color subColor = Color.FromArgb(subtR, subtG, subtB);
+
+                    bitmapContorno.SetPixel(x, y, subColor);
+                }
+            }
+            return bitmapContorno;
         }
     }
 }

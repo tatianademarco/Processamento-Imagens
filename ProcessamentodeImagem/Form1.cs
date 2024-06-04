@@ -25,15 +25,35 @@ namespace ProcessamentodeImagem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pictureBoxOriginal.Image = imagemOriginal1.CarregarImagem();
-            imagemEditada.imagemOriginal1 = imagemOriginal1;
-            imagemEditada.bitmap = new Bitmap(imagemOriginal1.width, imagemOriginal1.height);
-            imagemEditada.width = imagemOriginal1.width;
-            imagemEditada.height = imagemOriginal1.height;
 
-            (int[] pixelsR, int[] pixelsG, int[] pixelsB) = imagemEditada.GerarHistogramaOriginal();
+            if (imagemOriginal1.CarregarImagem() != null)
+            {
+                pictureBoxOriginal.Image = imagemOriginal1.bitmap;
+                imagemEditada.imagemOriginal1 = imagemOriginal1;
+                
+                chartOriginal.Series["Red"].Points.Clear();
+                chartOriginal.Series["Green"].Points.Clear();
+                chartOriginal.Series["Blue"].Points.Clear();
+                chartEqual.Series["Red"].Points.Clear();
+                chartEqual.Series["Green"].Points.Clear();
+                chartEqual.Series["Blue"].Points.Clear();
 
-            AtualizarGraficoHistograma(chartOriginal, pixelsR, pixelsG, pixelsB);
+                pictureBoxEditada.Image = null;
+            }
+
+            if (pictureBoxOriginal.Image != null)
+            {
+                imagemEditada.bitmap = new Bitmap(imagemOriginal1.width, imagemOriginal1.height);
+                imagemEditada.width = imagemOriginal1.width;
+                imagemEditada.height = imagemOriginal1.height;
+
+                numHorizRecort2.Maximum = imagemOriginal1.width;
+                numVertRecorte2.Maximum = imagemOriginal1.height;
+
+                (int[] pixelsR, int[] pixelsG, int[] pixelsB) = imagemEditada.GerarHistogramaOriginal();
+
+                AtualizarGraficoHistograma(chartOriginal, pixelsR, pixelsG, pixelsB);
+            }
         }
 
         private void btnCarregar2_Click(object sender, EventArgs e)
@@ -83,6 +103,30 @@ namespace ProcessamentodeImagem
             if (imagemOriginal1.bitmap != null)
             {
                 pictureBoxEditada.Image = imagemEditada.AumentarContraste((int)(numericUDcontraste.Value));
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bMultiplicacao_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.Multiplicar((int)(nUDMultiplicacao.Value));
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bDivisao_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.Dividir((int)(numUpDDiv.Value));
             }
             else
             {
@@ -317,7 +361,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMaximo();
+                pictureBoxEditada.Image = imagemEditada.FiltrarMaximo(trackBarKernel.Value);
             }
             else
             {
@@ -329,7 +373,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMinimo();
+                pictureBoxEditada.Image = imagemEditada.FiltrarMinimo(trackBarKernel.Value);
             }
             else
             {
@@ -341,7 +385,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMedia();
+                pictureBoxEditada.Image = imagemEditada.FiltrarMedia(trackBarKernel.Value);
             }
             else
             {
@@ -353,7 +397,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMediana();
+                pictureBoxEditada.Image = imagemEditada.FiltrarMediana(trackBarKernel.Value);
             }
             else
             {
@@ -365,7 +409,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarOrdem((int)(numOrdem.Value));
+                pictureBoxEditada.Image = imagemEditada.FiltrarOrdem((int)numOrdem.Value, trackBarKernel.Value);
             }
             else
             {
@@ -377,7 +421,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarSuavizacaoConservativa();
+                pictureBoxEditada.Image = imagemEditada.FiltrarSuavizacaoConservativa(trackBarKernel.Value);
             }
             else
             {
@@ -389,7 +433,117 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarFiltroGaussiano((int)desvioPadrao.Value, (int)trackBarKernel.Value);
+                pictureBoxEditada.Image = imagemEditada.AplicarFiltroGaussiano((int)desvioPadrao.Value, trackBarKernel.Value);
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void trackBarKernel_Scroll(object sender, EventArgs e)
+        {
+            if (trackBarKernel.Value % 2 == 0) trackBarKernel.Value++;
+
+            numOrdem.Maximum = trackBarKernel.Value * trackBarKernel.Value;
+
+            pBoxKernelGaussiano.Image = imagemEditada.GerarImagemKernelGaussiano(imagemEditada.CriarKernelGaussiano((int)desvioPadrao.Value, trackBarKernel.Value), trackBarKernel.Value);
+        }
+
+        private void desvioPadrao_ValueChanged(object sender, EventArgs e)
+        {
+            pBoxKernelGaussiano.Image = imagemEditada.GerarImagemKernelGaussiano(imagemEditada.CriarKernelGaussiano((int)desvioPadrao.Value, trackBarKernel.Value), trackBarKernel.Value);
+        }
+
+        private void bPrewitt_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarFiltroDeteccaoDeBordas(bPrewitt.Text);
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bSobel_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarFiltroDeteccaoDeBordas(bSobel.Text);
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bLaplaciano_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarFiltroDeteccaoDeBordas(bLaplaciano.Text);
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bDilatacao_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarDilatacao(imagemOriginal1.bitmap);
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bErosao_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarErosao(imagemOriginal1.bitmap);
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bAbertura_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarAbertura();
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bFechamento_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarFechamento();
+            }
+            else
+            {
+                MessageBox.Show("Carregue uma imagem primeiro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bContorno_Click(object sender, EventArgs e)
+        {
+            if (imagemOriginal1.bitmap != null)
+            {
+                pictureBoxEditada.Image = imagemEditada.AplicarContorno();
             }
             else
             {
