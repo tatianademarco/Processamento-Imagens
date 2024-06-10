@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,13 @@ namespace ProcessamentodeImagem
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void CarregarImagemEditada(Bitmap imagemSaida)
+        {
+            pictureBoxEditada.Image = imagemSaida;
+            labelImagemEditada.Text = imagemSaida.Width.ToString() + "x" + imagemSaida.Height.ToString();
+            labelImagemEditada.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,6 +55,9 @@ namespace ProcessamentodeImagem
                 imagemEditada.width = imagemOriginal1.width;
                 imagemEditada.height = imagemOriginal1.height;
 
+                labelTamanhoImagem1.Text = imagemOriginal1.width.ToString() + "x" + imagemOriginal1.height.ToString();
+                labelTamanhoImagem1.Visible = true;
+
                 numHorizRecort2.Maximum = imagemOriginal1.width;
                 numVertRecorte2.Maximum = imagemOriginal1.height;
 
@@ -60,6 +71,9 @@ namespace ProcessamentodeImagem
         {
             pictureBox2.Image = imagemOriginal2.CarregarImagem();
             imagemEditada.imagemOriginal2 = imagemOriginal2;
+
+            labelTamanhoImagem2.Text = imagemOriginal2.width.ToString() + "x" + imagemOriginal2.height.ToString();
+            labelTamanhoImagem2.Visible = true;
         }
 
         private void SaveImage_Click(object sender, EventArgs e)
@@ -78,7 +92,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.TransformarNegativo();
+                CarregarImagemEditada(imagemEditada.TransformarNegativo());
             }
             else
             {
@@ -90,7 +104,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AumentarBrilho((int)(numericUDBrilho.Value));
+                CarregarImagemEditada(imagemEditada.AumentarBrilho((int)(numericUDBrilho.Value)));
             }
             else
             {
@@ -102,7 +116,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AumentarContraste((int)(numericUDcontraste.Value));
+                CarregarImagemEditada(imagemEditada.AumentarContraste((int)(numericUDcontraste.Value)));
             }
             else
             {
@@ -114,7 +128,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.Multiplicar((int)(nUDMultiplicacao.Value));
+                CarregarImagemEditada(imagemEditada.Multiplicar((int)(nUDMultiplicacao.Value)));
             }
             else
             {
@@ -126,7 +140,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.Dividir((int)(numUpDDiv.Value));
+                CarregarImagemEditada(imagemEditada.Dividir((int)(numUpDDiv.Value)));
             }
             else
             {
@@ -138,7 +152,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.TransformarBinario(imagemOriginal1.bitmap, (int)(numericUpDownLimiar.Value));
+                CarregarImagemEditada(imagemEditada.TransformarBinario(imagemOriginal1.bitmap, (int)(numericUpDownLimiar.Value)));
             }
             else
             {
@@ -150,7 +164,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FlipImageLR();
+                CarregarImagemEditada(imagemEditada.FlipImageLR());
             }
             else
             {
@@ -162,7 +176,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FlipImageUD();
+                CarregarImagemEditada(imagemEditada.FlipImageUD());
             }
             else
             {
@@ -174,7 +188,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.ConverterCinza();
+                CarregarImagemEditada(imagemEditada.ConverterCinza());
             }
             else
             {
@@ -196,7 +210,7 @@ namespace ProcessamentodeImagem
 
                 if (width > 0 && height > 0 && imagemOriginal1.width >= x2 && imagemOriginal1.height >= y2)
                 {
-                    pictureBoxEditada.Image = imagemEditada.Recortar(width, height, x1, y1);
+                    CarregarImagemEditada(imagemEditada.Recortar(width, height, x1, y1));
                 }
                 else
                 {
@@ -213,7 +227,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.Concatenar();
+                CarregarImagemEditada(imagemEditada.Concatenar());
             }
             else
             {
@@ -225,7 +239,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.SomarImagens();
+                CarregarImagemEditada(imagemEditada.SomarImagens());
             }
             else
             {
@@ -237,7 +251,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.SubtrairImagens();
+                CarregarImagemEditada(imagemEditada.SubtrairImagens());
             }
             else
             {
@@ -249,7 +263,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarBlending((int)(nUDBlending.Value));
+                CarregarImagemEditada(imagemEditada.AplicarBlending((int)(nUDBlending.Value)));
             }
             else
             {
@@ -262,7 +276,7 @@ namespace ProcessamentodeImagem
             if (imagemOriginal1.bitmap != null)
             {
                 Bitmap equalizada = imagemEditada.Equalizar();
-                pictureBoxEditada.Image = equalizada;
+                CarregarImagemEditada(equalizada);
                 
                 (int[] pixelsR, int[] pixelsG, int[] pixelsB) = imagemEditada.GerarHistogramaEqualizado(equalizada);
 
@@ -301,7 +315,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarAnd();
+                CarregarImagemEditada(imagemEditada.AplicarAnd());
             }
             else
             {
@@ -313,7 +327,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarOr();
+                CarregarImagemEditada(imagemEditada.AplicarOr());
             }
             else
             {
@@ -325,7 +339,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarNot();
+                CarregarImagemEditada(imagemEditada.AplicarNot());
             }
             else
             {
@@ -337,7 +351,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarXor();
+                CarregarImagemEditada(imagemEditada.AplicarXor());
             }
             else
             {
@@ -349,7 +363,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null && imagemOriginal2.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarMedia();
+                CarregarImagemEditada(imagemEditada.AplicarMedia());
             }
             else
             {
@@ -361,7 +375,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMaximo(trackBarKernel.Value);
+                CarregarImagemEditada(imagemEditada.FiltrarMaximo(trackBarKernel.Value));
             }
             else
             {
@@ -373,7 +387,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMinimo(trackBarKernel.Value);
+                CarregarImagemEditada(imagemEditada.FiltrarMinimo(trackBarKernel.Value));
             }
             else
             {
@@ -385,7 +399,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMedia(trackBarKernel.Value);
+                CarregarImagemEditada(imagemEditada.FiltrarMedia(trackBarKernel.Value));
             }
             else
             {
@@ -397,7 +411,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarMediana(trackBarKernel.Value);
+                CarregarImagemEditada(imagemEditada.FiltrarMediana(trackBarKernel.Value));
             }
             else
             {
@@ -409,7 +423,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarOrdem((int)numOrdem.Value, trackBarKernel.Value);
+                CarregarImagemEditada(imagemEditada.FiltrarOrdem((int)numOrdem.Value, trackBarKernel.Value));
             }
             else
             {
@@ -421,7 +435,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.FiltrarSuavizacaoConservativa(trackBarKernel.Value);
+                CarregarImagemEditada(imagemEditada.FiltrarSuavizacaoConservativa(trackBarKernel.Value));
             }
             else
             {
@@ -433,7 +447,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarFiltroGaussiano((int)desvioPadrao.Value, trackBarKernel.Value);
+                CarregarImagemEditada(imagemEditada.AplicarFiltroGaussiano((int)desvioPadrao.Value, trackBarKernel.Value));
             }
             else
             {
@@ -459,7 +473,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarFiltroDeteccaoDeBordas(bPrewitt.Text);
+                CarregarImagemEditada(imagemEditada.AplicarFiltroDeteccaoDeBordas(bPrewitt.Text));
             }
             else
             {
@@ -471,7 +485,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarFiltroDeteccaoDeBordas(bSobel.Text);
+                CarregarImagemEditada(imagemEditada.AplicarFiltroDeteccaoDeBordas(bSobel.Text));
             }
             else
             {
@@ -483,7 +497,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarFiltroDeteccaoDeBordas(bLaplaciano.Text);
+                CarregarImagemEditada(imagemEditada.AplicarFiltroDeteccaoDeBordas(bLaplaciano.Text));
             }
             else
             {
@@ -495,7 +509,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarDilatacao(imagemOriginal1.bitmap);
+                CarregarImagemEditada(imagemEditada.AplicarDilatacao(imagemOriginal1.bitmap));
             }
             else
             {
@@ -507,7 +521,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarErosao(imagemOriginal1.bitmap);
+                CarregarImagemEditada(imagemEditada.AplicarErosao(imagemOriginal1.bitmap));
             }
             else
             {
@@ -519,7 +533,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarAbertura();
+                CarregarImagemEditada(imagemEditada.AplicarAbertura());
             }
             else
             {
@@ -531,7 +545,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarFechamento();
+                CarregarImagemEditada(imagemEditada.AplicarFechamento());
             }
             else
             {
@@ -543,7 +557,7 @@ namespace ProcessamentodeImagem
         {
             if (imagemOriginal1.bitmap != null)
             {
-                pictureBoxEditada.Image = imagemEditada.AplicarContorno();
+                CarregarImagemEditada(imagemEditada.AplicarContorno());
             }
             else
             {

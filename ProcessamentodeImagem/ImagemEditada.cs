@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
 using static System.Net.Mime.MediaTypeNames;
+using System.Reflection;
 
 namespace ProcessamentodeImagem
 {
@@ -967,7 +968,7 @@ namespace ProcessamentodeImagem
                     pixelsG.Sort();
                     pixelsB.Sort();
 
-                    Color ordemColor = Color.FromArgb(pixelsR[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))], pixelsR[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))], pixelsR[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))]);                
+                    Color ordemColor = Color.FromArgb(pixelsR[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))], pixelsG[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))], pixelsB[(int)(ordem * (double)(pixelsR.Count / (double)(sizeKernel * sizeKernel) - 0.001))]);                
 
                     bitmap.SetPixel(x, y, ordemColor);
                 }
@@ -1046,7 +1047,7 @@ namespace ProcessamentodeImagem
                         colorB = originalColor.B;
                     }
 
-                    Color suavizadoColor = Color.FromArgb (colorB, colorG, colorB);
+                    Color suavizadoColor = Color.FromArgb (colorR, colorG, colorB);
 
                     bitmap.SetPixel(x, y, suavizadoColor);
                 }
@@ -1335,12 +1336,13 @@ namespace ProcessamentodeImagem
         public Bitmap AplicarContorno()
         {
             Bitmap bitmapContorno = this.AplicarErosao(imagemOriginal1.bitmap);
+            Bitmap bitmapBinario = this.TransformarBinario(imagemOriginal1.bitmap, 128);
 
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
-                    Color originalColor = imagemOriginal1.bitmap.GetPixel(x, y);
+                    Color originalColor = bitmapBinario.GetPixel(x, y);
                     Color originalColor2 = bitmapContorno.GetPixel(x, y);
 
                     int subtR = originalColor.R - originalColor2.R;
